@@ -6,7 +6,7 @@ def uint8_to_float(image: np.ndarray) -> np.ndarray:
     """Without using any cv functions, take an image with uint8 values in the range [0, 255] and
     return a copy of the image with data type float32 and values in the range [0, 1]
     """
-    raise NotImplementedError("your code here")
+    return image.astype(np.float32) / 255.0
 
 
 def float_to_uint8(image: np.ndarray) -> np.ndarray:
@@ -15,7 +15,7 @@ def float_to_uint8(image: np.ndarray) -> np.ndarray:
     should be clipped (i.e. a float of 1.1 should be converted to a uint8 of 255, and a float of
     -0.1 should be converted to a uint8 of 0).
     """
-    raise NotImplementedError("your code here")
+    return (np.clip(image, 0, 1) * 255.0).astype(np.uint8)
 
 
 def crop(image: np.ndarray, x: int, y: int, w: int, h: int) -> np.ndarray:
